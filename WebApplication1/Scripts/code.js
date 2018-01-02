@@ -1,4 +1,16 @@
-﻿$("#input").on('keyup', function (e) {
+﻿
+
+const input = $("#input");
+const input$ = Rx.Observable.fromEvent(input, 'keyup')
+    .throttleTime(250)
+    .map(key => Rx.getJSON("/searchResults?q="+input.value));
+input$
+    .subscribe(
+    (e) => {
+        console.log("x");
+    });
+
+$("#input").on('keyup', function (e) {
     console.log(e);
 
     $.ajax({
