@@ -13,6 +13,9 @@ namespace WebApplication1
 
       bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                   "~/Scripts/jquery.validate*"));
+
+      bundles.Add(new ScriptBundle("~/bundles/rxjs").Include(
+            "~/Scripts/Rx.min.js"));
     }
   }
 }
